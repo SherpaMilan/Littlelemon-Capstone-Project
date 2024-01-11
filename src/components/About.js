@@ -1,3 +1,5 @@
+import Layout from "./Layout";
+
 const links = [
   { name: "Open roles", href: "#" },
   { name: "Internship program", href: "#" },
@@ -12,7 +14,8 @@ const stats = [
 ];
 
 export default function About() {
-  return (
+  <Layout>
+    return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
         src="https://images.unsplash.com/photo-1504284992506-f6d82d0f2f2a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjI4fHxyZXN0YXVyYW50fGVufDB8MHw0fHx8Mg%3D%3D"
@@ -79,5 +82,6 @@ export default function About() {
         </div>
       </div>
     </div>
-  );
+    );
+  </Layout>;
 }

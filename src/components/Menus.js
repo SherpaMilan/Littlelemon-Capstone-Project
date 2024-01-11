@@ -50,6 +50,7 @@ const dinner = [
 export default function Menus() {
   return (
     <>
+      {/* <Layout> */}
       <div className="flex flex-col items-center">
         {/* dinner section */}
         <div className="flex flex-col items-center justify-center mb-4">
@@ -207,6 +208,7 @@ export default function Menus() {
           </div>
         </div>
       </div>
+      {/* </Layout> */}
     </>
   );
 }

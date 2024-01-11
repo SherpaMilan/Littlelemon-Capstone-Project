@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Menus from "./components/Menus";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import HeroSection from "./components/Hero-Section";
 import "./App.css";
@@ -11,6 +12,8 @@ import Highlights from "./components/Highlights";
 import Header from "./components/Header";
 import Reservations from "./components/Reservations";
 import { Footer } from "./components/Footer";
+import Layout from "./components/Layout";
+import Example from "./components/Example";
 
 const App = () => {
   return (
@@ -31,6 +34,7 @@ const App = () => {
 
       <Testimonials />
       <Footer />
+      <Example />
     </>
   );
 };
