@@ -1,5 +1,3 @@
-import Layout from "./Layout";
-
 const links = [
   { name: "Open roles", href: "#" },
   { name: "Internship program", href: "#" },
@@ -14,13 +12,12 @@ const stats = [
 ];
 
 export default function About() {
-  <Layout>
-    return (
+  return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
-        src="https://images.unsplash.com/photo-1504284992506-f6d82d0f2f2a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjI4fHxyZXN0YXVyYW50fGVufDB8MHw0fHx8Mg%3D%3D"
+        src="https://images.unsplash.com/photo-1559848062-fa79073be982?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-0.2 blur-sm"
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center "
       />
       <div
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -82,6 +79,5 @@ export default function About() {
         </div>
       </div>
     </div>
-    );
-  </Layout>;
+  );
 }

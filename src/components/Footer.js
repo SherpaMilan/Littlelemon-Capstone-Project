@@ -15,8 +15,8 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-black py-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between">
+    <footer className="  bg-gray-100 text-black py-8">
+      <div className="container flex mx-auto flex flex-col md:flex-row justify-between">
         {/* some links  */}
         <div className="mb-6 md:mb-0">
           <h3 className="text-xl font-bold mb-3">SiteMap</h3>
@@ -58,7 +58,7 @@ export const Footer = () => {
         </div>
 
         {/* socials  */}
-        <div className="mb-6 flex flex-col items-center md:mb-0">
+        <div className="mb-6 flex flex-col  md:mb-0">
           <div className="text-xl font-bold mb-2">Social Networks </div>
           <ul className="flex flex-row space-x-4">
             <li>
@@ -153,7 +153,7 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="text-black-800 flex justify-center font-semibold text-l hover:bg-gray-700 hover:text-white">
+      <div className="text-black-800 flex justify-center font-semibold text-l">
         <p>
           {" "}
           &copy; {new Date().getFullYear()} Little Lemon | All Rights Reserved.

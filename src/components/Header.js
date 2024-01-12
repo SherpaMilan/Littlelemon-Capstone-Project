@@ -8,7 +8,7 @@ import profileImage from "../images/profile.jpg";
 import { Fragment } from "react";
 const navigation = [
   { name: "Home", to: "/", current: true },
-  { name: "About Us", to: "/aboutus", current: false },
+  { name: "About Us", to: "/about", current: false },
   { name: "Menus", to: "/menus", current: false },
   { name: "Reservations", to: "/reservations", current: false },
 ];
