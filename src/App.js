@@ -12,6 +12,7 @@ import About from "./components/About.js";
 
 import Layout from "./components/Layout.js";
 import Home from "./components/Home.js";
+import Profile from "./components/Profile.js";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/menus" component={Menus} />
             <Route path="/about" component={About} />
             <Route path="/reservations" component={Reservations} />
+            <Route path="/profile" component={Profile} />
             <Route path="/" component={Home} />
           </Switch>
         </Layout>
