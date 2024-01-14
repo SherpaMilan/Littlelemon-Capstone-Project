@@ -44,7 +44,7 @@ const Header = () => {
               <div className="flex flex-1 items-center ">
                 <div className="flex flex-shrink-0 items-center sm:justify-center ">
                   <img
-                    className="h-16  ml-16 contrast-125 brightness-75"
+                    className="h-14  ml-14 contrast-125 brightness-75"
                     src={myImage}
                     alt="Your Company"
                   />

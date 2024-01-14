@@ -18,8 +18,8 @@ export const Footer = () => {
     <footer className="  bg-gray-100 text-black py-8">
       <div className="container flex mx-auto flex flex-col md:flex-row justify-between">
         {/* some links  */}
-        <div className="mb-6 md:mb-0">
-          <h3 className="text-xl font-bold mb-3">SiteMap</h3>
+        <div className="mb-6 mr-6 md:mb-0">
+          <h3 className="text-xl  font-bold mb-3">SiteMap</h3>
           <ul className="flex flex-col space-y-2">
             <li>
               <a href="#news" className="text-black ">
@@ -44,7 +44,7 @@ export const Footer = () => {
           </ul>
         </div>
         {/* location  */}
-        <div className="mb-6 md:mb-0">
+        <div className="mb-6 mr-4 md:mb-0">
           <h3 className="text-xl font-bold mb-3">
             Location
             <FontAwesomeIcon
@@ -59,7 +59,9 @@ export const Footer = () => {
 
         {/* socials  */}
         <div className="mb-6 flex flex-col  md:mb-0">
-          <div className="text-xl font-bold mb-2">Social Networks </div>
+          <div className="text-xl text-center font-bold mb-2">
+            Social Networks{" "}
+          </div>
           <ul className="flex flex-row space-x-4">
             <li>
               <a
@@ -134,7 +136,7 @@ export const Footer = () => {
         </div>
         {/* opening hours */}
 
-        <div className="mb-6 md:mb-0">
+        <div className="mb-6 ml-10 md:mb-0">
           <h3 className="text-xl  font-bold mb-3">
             Opening Hours
             <FontAwesomeIcon
