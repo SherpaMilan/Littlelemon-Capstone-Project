@@ -59,9 +59,7 @@ export const Footer = () => {
 
         {/* socials  */}
         <div className="mb-6 flex flex-col  md:mb-0">
-          <div className="text-xl text-center font-bold mb-2">
-            Social Networks{" "}
-          </div>
+          <div className="text-xl  font-bold mb-2">Social Networks</div>
           <ul className="flex flex-row space-x-4">
             <li>
               <a
