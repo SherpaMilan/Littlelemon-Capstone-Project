@@ -16,6 +16,7 @@ import Profile from "./components/Profile.js";
 import Signup from "./components/Signup.js";
 
 import Confirm from "./components/Confirm.js";
+import SignUp from "./components/Signup.js";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={Signup} />
             <Route path="/confirmation" component={Confirm} />
+            <Route path="/cancel" component={SignUp} />
             <Route path="/" component={Home} />
           </Switch>
         </Layout>
