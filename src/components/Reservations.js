@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "./Layout";
-import Confirmation from "./Confirmation";
+import Booking from "./Booking";
 
 const Reservations = () => {
   return (
     <div>
       <h1>
-        <Confirmation />
+        <Booking />
       </h1>
     </div>
   );
