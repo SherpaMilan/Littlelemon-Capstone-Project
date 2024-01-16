@@ -116,20 +116,6 @@ export const Footer = () => {
                 </span>
               </a>
             </li>
-
-            <li>
-              <a
-                href="https://SherpaMilan.com"
-                className="text-black hover:text-white flex items-center"
-              >
-                <span className="bg-gray-800 rounded-full p-1 mr-1">
-                  <FontAwesomeIcon
-                    icon={faCircleUser}
-                    className="text-white text-lg"
-                  />
-                </span>
-              </a>
-            </li>
           </ul>
         </div>
         {/* opening hours */}

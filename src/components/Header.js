@@ -8,8 +8,6 @@ import { Fragment, useState } from "react"; // Make sure to import useState if y
 // Import other necessary components and resources
 import myImage from "../images/logo7.jpg";
 import profileImage from "../images/profile.jpg";
-import Profile from "./Profile";
-import Home from "./Home.js";
 
 const navigation = [
   { name: "Home", to: "/", current: true },
@@ -131,15 +129,12 @@ const Header = () => {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
+                          <Link
+                            to="/signin"
+                            className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
                           >
-                            Sign out
-                          </a>
+                            Sign In
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>

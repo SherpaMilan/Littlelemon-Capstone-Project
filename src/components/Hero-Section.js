@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 export default function HeroSection() {
   return (
     <div
@@ -30,12 +32,12 @@ export default function HeroSection() {
               happiness, beautifully orchestrated to delight your senses.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="/reservations"
+              <Link
+                to="/reservations"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Reserve a Table
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-sm font-semibold leading-6 text-gray-900"

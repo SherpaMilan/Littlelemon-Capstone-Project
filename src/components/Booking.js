@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Booking() {
   return (
@@ -11,7 +12,7 @@ function Booking() {
       </div>
       <div className="w-full max-w-screen-lg mx-auto">
         {/* Form */}
-        <form className="flex flex-col items-center md:flex-row md:items-start">
+        <form className="flex flex-col items-center mb-8 md:flex-row md:items-start">
           <img
             className=" w-72 h-85 mt-2  object-cover"
             src="/images/reserved.jpg"
@@ -119,7 +120,7 @@ function Booking() {
 
             {/* Date */}
             <div className="mb-4 flex flex-col md:flex-row">
-              <div className="mb-4 mt-3">
+              <div className="mb-4 mt-3 mr-2">
                 <label
                   htmlFor="date"
                   className="block text-sm font-medium text-gray-600"
@@ -133,7 +134,7 @@ function Booking() {
                   className="mt-1 p-2 border rounded-md w-40"
                 />
               </div>
-              <div className="mb-4 mt-3">
+              <div className="mb-4 mt-3 ">
                 <label
                   htmlFor="time"
                   className="block text-sm font-medium text-gray-600"
@@ -156,7 +157,7 @@ function Booking() {
 
             {/* Number of Visitors */}
             <div className="mb-4 flex flex-col md:flex-row">
-              <div className="mb-4 mt-2">
+              <div className="mb-4  mr-2 mt-2">
                 <label
                   htmlFor="visitors"
                   className="block text-sm font-medium text-gray-600"
@@ -171,7 +172,7 @@ function Booking() {
                 />
               </div>
 
-              <div className="mb-4 mt-3">
+              <div className="mb-4 mt-2">
                 <label
                   htmlFor="occasion"
                   className="block text-sm font-medium text-gray-600"
@@ -209,6 +210,7 @@ function Booking() {
           </div>
 
           {/* Background Color */}
+
           <div
             className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
             aria-hidden="true"
@@ -217,10 +219,23 @@ function Booking() {
               className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
               style={{
                 clipPath:
-                  "polygon(74.1% 44..1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
               }}
             />
           </div>
+          <div
+            className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+            aria-hidden="true"
+          >
+            <div
+              className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+              style={{
+                clipPath:
+                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+              }}
+            />
+          </div>
+          {/* bg color ends  */}
         </form>
       </div>
 
@@ -256,17 +271,23 @@ function Booking() {
 
           {/* Form Submission Buttons */}
           <div className="mt-2 flex items-center justify-center gap-x-6">
-            <button
-              type="button"
-              className="text-sm font-semibold leading-6 text-gray-900"
+            <Link
+              to="/home"
+              className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
             >
               Cancel
-            </button>
+            </Link>
+
             <button
               type="submit"
               className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Submit
+              <Link
+                to="/confirmation"
+                className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
+              >
+                Submit
+              </Link>
             </button>
           </div>
         </div>
