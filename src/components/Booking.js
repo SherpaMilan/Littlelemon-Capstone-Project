@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
+import { database } from "../firebase/firebaseconfig";
+import { addDoc, collection } from "firebase/firestore";
+
 function Booking() {
   // State Management with React Hooks
   const [formValues, setFormValues] = useState({
@@ -17,6 +20,15 @@ function Booking() {
   });
   // Form Validation State
   const [errors, setErrors] = useState({});
+
+  // Universal Phone Number Validation Function
+  const isValidPhoneNumber = (phoneNumber) => {
+    // Define your regular expression for phone numbers
+    const phoneRegex = /^[0-9]{10}$/;
+
+    // Test if the phone number matches the pattern
+    return phoneRegex.test(phoneNumber);
+  };
 
   // Form Validation Function
   const validateForm = () => {
@@ -39,8 +51,12 @@ function Booking() {
       isValid = false;
     }
 
+    // Phone Number
     if (formValues.phoneNumber.trim() === "") {
       newErrors.phoneNumber = "Phone Number is required";
+      isValid = false;
+    } else if (!isValidPhoneNumber(formValues.phoneNumber.trim())) {
+      newErrors.phoneNumber = "Invalid Phone Number";
       isValid = false;
     }
 
@@ -61,30 +77,75 @@ function Booking() {
   };
 
   // Form Submission Function
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   // Validate the form before submitting
+  //   if (validateForm()) {
+  //     // Your form submission logic goes here
+  //     console.log("Form submitted successfully!");
+
+  //     // Clear the form by resetting the form values in the state
+  //     setFormValues({
+  //       firstName: "",
+  //       lastName: "",
+  //       email: "",
+  //       phoneNumber: "",
+  //       setting: "indoor",
+  //       date: "",
+  //       time: "12:00 PM",
+  //       visitors: "",
+  //       occasion: "birthday",
+  //       specialRequest: "",
+  //     });
+
+  //     // You can also reset the errors state if needed
+  //     setErrors({});
+  //   } else {
+  //     console.log("Form has validation errors. Please correct them.");
+  //   }
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate the form before submitting
     if (validateForm()) {
-      // Your form submission logic goes here
-      console.log("Form submitted successfully!");
+      try {
+        // Add a new document to the "reservations" collection
+        const docRef = await addDoc(collection(database, "reservations"), {
+          firstName: formValues.firstName,
+          lastName: formValues.lastName,
+          email: formValues.email,
+          phoneNumber: formValues.phoneNumber,
+          setting: formValues.setting,
+          date: formValues.date,
+          time: formValues.time,
+          visitors: formValues.visitors,
+          occasion: formValues.occasion,
+          specialRequest: formValues.specialRequest,
+        });
 
-      // Clear the form by resetting the form values in the state
-      setFormValues({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        setting: "indoor",
-        date: "",
-        time: "12:00 PM",
-        visitors: "",
-        occasion: "birthday",
-        specialRequest: "",
-      });
+        console.log("Document written with ID submitted:", docRef.id);
 
-      // You can also reset the errors state if needed
-      setErrors({});
+        // Clear the form by resetting the form values in the state
+        setFormValues({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+          setting: "indoor",
+          date: "",
+          time: "12:00 PM",
+          visitors: "",
+          occasion: "birthday",
+          specialRequest: "",
+        });
+
+        // You can also reset the errors state if needed
+        setErrors({});
+      } catch (error) {
+        console.error("Error adding document:", error);
+      }
     } else {
       console.log("Form has validation errors. Please correct them.");
     }
@@ -124,17 +185,14 @@ function Booking() {
           />
         </div>
         {/* bg color design  */}
-
         {/* Section 1: Booking Information */}
         <div className="border-b mb-4 flex justify-center border-gray-900/10 mt-[-6rem] ">
           <p className=" text-m ml-5 text-base leading-6 text-gray-600">
             We appreciate your punctuality and look forward to serving you!
           </p>
         </div>
-
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="w-full max-w-screen-lg mx-auto mt-16 flex flex-col items-center space-y-8">
           {/* //form  */}
-
           <form
             className="flex flex-col items-center mb-8 md:flex-row md:items-start "
             method="POST"
@@ -145,7 +203,6 @@ function Booking() {
               src="/images/reserved.jpg"
               alt="Reserved"
             />
-
             {/* Left Section */}
             <div className="flex-1 md:w-1/2 mx-2 md:mx-6 mt-6 md:mt-0">
               <h2 className="text-base text-xl font-semibold leading-7 text-gray-900">
@@ -249,57 +306,9 @@ function Booking() {
                   </p>
                 )}
               </div>
-              {/* Notification Section */}
-              <div className="mt-2 mb-2 flex items-center justify-center gap-x-6">
-                <div className="mt-2  space-y-10">
-                  <fieldset>
-                    <div className="mt-6 space-y-6">
-                      <div className="relative flex gap-x-3">
-                        <div className="flex h-6 items-center">
-                          <input
-                            id="comments"
-                            name="comments"
-                            type="checkbox"
-                            className="h-4 w-4 rounded border-gray-800 text-indigo-600 focus:ring-indigo-600"
-                          />
-                        </div>
-                        <div className="text-l leading-6">
-                          <label
-                            htmlFor="comments"
-                            className="font-medium text-gray-900"
-                          >
-                            Subscribe
-                          </label>
-                          <p className=" text-gray-500">
-                            Stay updated on upcoming events and special evenings
-                            at our restaurant
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-              </div>
-              {/* Form Submission Buttons */}
-              <div className="mt-5 flex items-center justify-center gap-x-6">
-                <Link
-                  to="/home"
-                  className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
-                >
-                  Cancel
-                </Link>
-
-                <button
-                  type="submit"
-                  className="rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Submit
-                </button>
-              </div>
             </div>
-
             {/* Right Section */}
-            <div className="flex-1 md:w-1/2 mx-2  md:mx-5 mt-6 md:mt-0">
+            <div className="flex-1 md:w-1/2 mx-2 md:mx-6 mt-6 md:mt-0">
               <h2 className="text-base text-xl font-semibold leading-7 text-gray-900">
                 Reservation Details
               </h2>
@@ -460,6 +469,54 @@ function Booking() {
                     {errors.specialRequest}
                   </p>
                 )}
+              </div>
+            </div>
+            {/* //final div  */} {/* Notification Section */}
+            <div className="flex-1 ml-20 mt-[-14px]">
+              <div className="mt-2 mb-2 flex items-center justify-center gap-x-6">
+                <div className="mt-2  space-y-10">
+                  <fieldset>
+                    <div className="mt-6 space-y-6">
+                      <div className="relative flex gap-x-3">
+                        <div className="flex h-6 items-center">
+                          <input
+                            id="comments"
+                            name="comments"
+                            type="checkbox"
+                            className="h-4 w-4 rounded border-gray-800 text-indigo-600 focus:ring-indigo-600"
+                          />
+                        </div>
+                        <div className="text-l leading-6">
+                          <label
+                            htmlFor="comments"
+                            className="font-medium text-gray-900"
+                          >
+                            Subscribe
+                          </label>
+                          <p className=" text-gray-500">
+                            Stay updated on special evenings.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              {/* Form Submission Buttons */}
+              <div className="mt-5 flex items-center justify-center gap-x-6">
+                <Link
+                  to="/home"
+                  className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
+                >
+                  Cancel
+                </Link>
+
+                <button
+                  type="submit"
+                  className="rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </form>
