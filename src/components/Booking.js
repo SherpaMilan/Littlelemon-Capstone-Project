@@ -77,34 +77,7 @@ function Booking() {
   };
 
   // Form Submission Function
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
 
-  //   // Validate the form before submitting
-  //   if (validateForm()) {
-  //     // Your form submission logic goes here
-  //     console.log("Form submitted successfully!");
-
-  //     // Clear the form by resetting the form values in the state
-  //     setFormValues({
-  //       firstName: "",
-  //       lastName: "",
-  //       email: "",
-  //       phoneNumber: "",
-  //       setting: "indoor",
-  //       date: "",
-  //       time: "12:00 PM",
-  //       visitors: "",
-  //       occasion: "birthday",
-  //       specialRequest: "",
-  //     });
-
-  //     // You can also reset the errors state if needed
-  //     setErrors({});
-  //   } else {
-  //     console.log("Form has validation errors. Please correct them.");
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -138,7 +111,7 @@ function Booking() {
           time: "12:00 PM",
           visitors: "",
           occasion: "birthday",
-          specialRequest: "",
+          specialRequest: " ",
         });
 
         // You can also reset the errors state if needed
@@ -458,7 +431,7 @@ function Booking() {
                   id="specialRequest"
                   name="specialRequest"
                   rows="2"
-                  alue={formValues.specialRequest}
+                  value={formValues.specialRequest}
                   onChange={handleChange}
                   className={`mt-1 p-2 border rounded-md w-full md:w-2/3 ${
                     errors.specialRequest ? "border-red-500" : ""
