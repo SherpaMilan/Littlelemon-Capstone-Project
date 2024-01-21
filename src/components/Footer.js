@@ -120,7 +120,7 @@ export const Footer = () => {
         </div>
         {/* opening hours */}
 
-        <div className="mb-6 ml-10 md:mb-0">
+        <div className="mb-6  md:mb-0">
           <h3 className="text-xl  font-bold mb-3">
             Opening Hours
             <FontAwesomeIcon

@@ -3,8 +3,18 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import { database } from "../firebase/firebaseconfig";
 import { addDoc, collection } from "firebase/firestore";
+import { FaCheckCircle } from "react-icons/fa";
 
 function Booking() {
+  // state management for form submission alert
+  const [showAlert, setShowAlert] = useState(false);
+  // Function to show alert
+  const showSuccessAlert = () => {
+    setShowAlert(true);
+    // Hide the alert after 5 seconds (5000 milliseconds)
+    setTimeout(() => setShowAlert(false), 5000);
+  };
+
   // State Management with React Hooks
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -59,9 +69,15 @@ function Booking() {
       newErrors.phoneNumber = "Invalid Phone Number";
       isValid = false;
     }
+    // Validate Date
+    const selectedDate = new Date(formValues.date);
+    const currentDate = new Date();
 
     if (formValues.date.trim() === "") {
       newErrors.date = "Date is required";
+      isValid = false;
+    } else if (selectedDate < currentDate) {
+      newErrors.date = "Please select a future date";
       isValid = false;
     }
 
@@ -99,6 +115,7 @@ function Booking() {
         });
 
         console.log("Document written with ID submitted:", docRef.id);
+        showSuccessAlert();
 
         // Clear the form by resetting the form values in the state
         setFormValues({
@@ -158,6 +175,7 @@ function Booking() {
           />
         </div>
         {/* bg color design  */}
+
         {/* Section 1: Booking Information */}
         <div className="border-b mb-4 flex justify-center border-gray-900/10 mt-[-6rem] ">
           <p className=" text-m ml-5 text-base leading-6 text-gray-600">
@@ -492,6 +510,15 @@ function Booking() {
                 </button>
               </div>
             </div>
+            {/* alert  display message  */}
+            {showAlert && (
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-md shadow-md transition duration-300 transform hover:scale-105 flex items-center">
+                <FaCheckCircle className="text-green-400 text-3xl mr-2" />
+                <span className="text-lg font-semibold">
+                  Reservation submitted successfully!
+                </span>
+              </div>
+            )}
           </form>
         </div>
       </div>
