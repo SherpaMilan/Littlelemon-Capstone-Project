@@ -2,6 +2,7 @@ Little Lemon Restaurant Website
 
 This project is a website for Little Lemon, a fictional restaurant.
 It utilizes Create React App, React, Tailwind CSS, and Firebase Cloud Firestore for storing reservation data.
+Vercel for Deploying
 
 ---
 
