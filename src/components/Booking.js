@@ -183,19 +183,14 @@ function Booking() {
           </p>
         </div>
         <div className="w-full max-w-screen-lg mx-auto mt-16 flex flex-col items-center space-y-8">
-          {/* //form  */}
+          {/* Form */}
           <form
-            className="flex flex-col items-center mb-8 md:flex-row md:items-start "
+            className="flex flex-col items-center mb-8 md:flex-row md:items-start w-full max-w-screen-md"
             method="POST"
             onSubmit={handleSubmit}
           >
-            <img
-              className=" w-72 h-85 mt-2  object-cover"
-              src="/images/reserved.jpg"
-              alt="Reserved"
-            />
             {/* Left Section */}
-            <div className="flex-1 md:w-1/2 mx-2 md:mx-6 mt-6 md:mt-0">
+            <div className="flex-1  mx-2 md:mx-6 mt-6 md:mt-0 md:flex-col md:items-center">
               <h2 className="text-base text-xl font-semibold leading-7 text-gray-900">
                 Personal Information
               </h2>
@@ -299,7 +294,7 @@ function Booking() {
               </div>
             </div>
             {/* Right Section */}
-            <div className="flex-1 md:w-1/2 mx-2 md:mx-6 mt-6 md:mt-0">
+            <div className="flex-1 ml-20 mx-2 md:mx-6 mt-6 md:mt-0 md:flex-col md:items-center">
               <h2 className="text-base text-xl font-semibold leading-7 text-gray-900">
                 Reservation Details
               </h2>
@@ -461,55 +456,56 @@ function Booking() {
                   </p>
                 )}
               </div>
-            </div>
-            {/* //final div  */} {/* Notification Section */}
-            <div className="flex-1 ml-20 mt-[-14px]">
-              <div className="mt-2 mb-2 flex items-center justify-center gap-x-6">
-                <div className="mt-2  space-y-10">
-                  <fieldset>
-                    <div className="mt-6 space-y-6">
-                      <div className="relative flex gap-x-3">
-                        <div className="flex h-6 items-center">
-                          <input
-                            id="comments"
-                            name="comments"
-                            type="checkbox"
-                            className="h-4 w-4 rounded border-gray-800 text-indigo-600 focus:ring-indigo-600"
-                          />
-                        </div>
-                        <div className="text-l leading-6">
-                          <label
-                            htmlFor="comments"
-                            className="font-medium text-gray-900"
-                          >
-                            Subscribe
-                          </label>
-                          <p className=" text-gray-500">
-                            Stay updated on special evenings.
-                          </p>
+              {/* Notification Section */}
+              <div className="flex-1 ">
+                <div className="mt-2 mb-2 gap-x-6">
+                  <div className="mt-2  space-y-10">
+                    <fieldset>
+                      <div className="mt-6 space-y-6">
+                        <div className="relative flex gap-x-3">
+                          <div className="flex h-6 items-center">
+                            <input
+                              id="comments"
+                              name="comments"
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-800 text-indigo-600 focus:ring-indigo-600"
+                            />
+                          </div>
+                          <div className="text-l leading-6">
+                            <label
+                              htmlFor="comments"
+                              className="font-medium text-gray-900"
+                            >
+                              Subscribe
+                            </label>
+                            <p className=" text-gray-500">
+                              Stay updated on special evenings.
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </fieldset>
+                    </fieldset>
+                  </div>
+                </div>
+                {/* Form Submission Buttons */}
+                <div className="mt-5 flex items-center justify-center gap-x-6">
+                  <Link
+                    to="/home"
+                    className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
+                  >
+                    Cancel
+                  </Link>
+
+                  <button
+                    type="submit"
+                    className="rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
-              {/* Form Submission Buttons */}
-              <div className="mt-5 flex items-center justify-center gap-x-6">
-                <Link
-                  to="/home"
-                  className="flex flex-col items-center md:flex-row md:items-start block px-4 py-2 text-sm text-gray-700"
-                >
-                  Cancel
-                </Link>
-
-                <button
-                  type="submit"
-                  className="rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Submit
-                </button>
-              </div>
             </div>
+
             {/* alert  display message  */}
             {showAlert && (
               <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-md shadow-md transition duration-300 transform hover:scale-105 flex items-center">
