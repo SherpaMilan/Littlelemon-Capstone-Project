@@ -7,11 +7,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import {
-  faBell,
-  faCircleUser,
-  faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBell, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export const Footer = () => {
   return (

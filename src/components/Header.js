@@ -1,9 +1,9 @@
 // Header.jsx
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Fragment, useState } from "react"; // Make sure to import useState if you are using it
+import { Fragment } from "react"; // Make sure to import useState if you are using it
 
 // Import other necessary components and resources
 import myImage from "../images/logo7.jpg";
