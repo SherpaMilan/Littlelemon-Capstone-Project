@@ -12,17 +12,17 @@ export default function HeroSection() {
       }}
     >
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div className="mx-auto mt-[-90px] max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+        <div className="mx-auto  max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="hidden mt-[-60px] sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative  mb-6 rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-800/10 hover:ring-gray-900/20">
               Announcing our new menu, explore our delicious offerings!.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span className="absolute inset-0" aria-hidden="true" />
+              <a href="#" className="font-semibold text-indigo-600 relative">
+                <span className="absolute inset-0 " aria-hidden="true" />
                 Read more <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
-          <div className="ml-20">
+          <div className="ml-20 mt-[-50px]">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Explore Little Lemon, Each bite is a delight.
             </h1>
@@ -36,7 +36,7 @@ export default function HeroSection() {
                 to="/reservations"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Reserve a Table
+                Reserve Table
               </Link>
               <a
                 href="#"
