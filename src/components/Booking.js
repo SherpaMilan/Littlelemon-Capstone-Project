@@ -11,6 +11,9 @@ function Booking() {
   // Function to show alert
   const showSuccessAlert = () => {
     setShowAlert(true);
+    // Scroll the screen up to show the alert
+    window.scrollTo(0, 0);
+
     // Hide the alert after 5 seconds (5000 milliseconds)
     setTimeout(() => setShowAlert(false), 5000);
   };
